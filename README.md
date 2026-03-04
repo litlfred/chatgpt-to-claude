@@ -91,6 +91,3 @@ Running the script again on the same or an updated ZIP is safe — `manifest.jso
 - **Voice / video**: Audio from Advanced Voice Mode is not exported by OpenAI.
 - **Team / Enterprise**: Workspace conversations cannot be exported at all (OpenAI restriction).
 
-## License
-
-MIT
