@@ -42,7 +42,6 @@ import json
 import os
 import re
 import sys
-import tempfile
 import time
 import zipfile
 from datetime import datetime
@@ -54,7 +53,7 @@ from urllib.request import Request, urlopen
 
 MANIFEST_FILE    = "manifest.json"
 ANTHROPIC_MODEL  = "claude-sonnet-4-20250514"
-OUTPUT_DIR       = Path(tempfile.gettempdir()) / "chatgpt-to-claude"
+OUTPUT_DIR       = Path.cwd() / "tmp" / "chatgpt-to-claude"
 ASSETS_SUBDIR    = "assets"
 API_CALL_DELAY   = 0.6   # seconds between Claude API calls
 
