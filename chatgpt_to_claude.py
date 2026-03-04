@@ -290,7 +290,8 @@ def recover_assets(
             kind     = bp.get("kind", "file")
             mime     = bp.get("mime_type") or ("image/webp" if kind == "image" else "application/octet-stream")
             ext      = ext_for_mime(mime)
-            fname    = f"{file_id or f'asset_{counts[\"total\"]}'}{ext}"
+            base     = file_id or f"asset_{counts['total']}"
+            fname    = f"{base}{ext}"
             dest     = assets_dir / fname
             status   = "missing"
 
@@ -299,7 +300,7 @@ def recover_assets(
                 member = zip_member_by_size(zf, size, zip_idx)
                 if member:
                     orig_ext = Path(member).suffix or ext
-                    dest     = assets_dir / f"{file_id or f'asset_{counts[\"total\"]}'}{orig_ext}"
+                    dest     = assets_dir / f"{base}{orig_ext}"
                     fname    = dest.name
                     dest.write_bytes(zf.read(member))
                     seen_sizes.add(size)
